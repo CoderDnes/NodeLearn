@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const requestHandlers = (req, res) => {
+const requestHandler = (req, res) => {
   const url = req.url;
   const method = req.method;
   if (url === '/') {
@@ -12,7 +12,6 @@ const requestHandlers = (req, res) => {
     res.write('</html>');
     return res.end();
   }
-  
   if (url === '/message' && method === 'POST') {
     const body = [];
     req.on('data', chunk => {
@@ -47,5 +46,5 @@ const requestHandlers = (req, res) => {
 // module.exports.handler = requestHandler;
 // module.exports.someText = 'Some text';
 
-exports.handler = requestHandlers;
+exports.handler = requestHandler;
 exports.someText = 'Some hard coded text';

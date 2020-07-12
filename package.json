@@ -1,0 +1,24 @@
+{
+  "name": "nodelearn",
+  "version": "1.0.0",
+  "description": "LearingNodeJs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node app.js",
+    "start-server":"node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CoderDnes/NodeLearn.git"
+  },
+  "keywords": [
+    "Node"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CoderDnes/NodeLearn/issues"
+  },
+  "homepage": "https://github.com/CoderDnes/NodeLearn#readme"
+}
