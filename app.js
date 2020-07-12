@@ -12,26 +12,21 @@ const server = http.createServer((req, res) => {
     return res.end();
   }
   if (url === '/message' && method === 'POST') {
-    // efinig a function to be exectued  for every incoming data piece
-    const body = []; 
-    req.on('data', (chunk)=>{
-      // here we recieve a chunk of data and do something to interact with these chunks
-      body.push(chunk)
+    const body = [];
+    req.on('data', (chunk) => {
       console.log(chunk);
+      body.push(chunk);
     });
-    // event is fired once done parsing the incoming request data
-    req.on('end',()=>{
-      // this will be done once parsng the incoming requests.. and parsedbody is buffer here
+    req.on('end', () => {
       const parsedBody = Buffer.concat(body).toString();
-      const message = parsedBody.split("=")[1]
-      // fs.writeFileSync('message.txt', 'DUMMY');
+      const message = parsedBody.split('=')[1];
       fs.writeFileSync('message.txt', message);
-      res.statusCode = 302;
-      res.setHeader('Location', '/');
-      return res.end();
-    })
+    });
     
-  
+    res.statusCode = 302;
+    
+    res.setHeader('Location', '/');
+    return res.end();
   }
   res.setHeader('Content-Type', 'text/html');
   res.write('<html>');
@@ -42,6 +37,3 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(3000);
-
-
-
